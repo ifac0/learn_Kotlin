@@ -1,39 +1,23 @@
 fun main(){
+    val contaIvan = Conta()
+    contaIvan.titular = "Ivan"
+    contaIvan.numero = 123
+    contaIvan.saldo = 10.78
+    println(contaIvan.toString())
 
-    for (i in 1..5) {
-
-        /**
-        if(i == 2) {
-            break
-        }
-        **/
-
-        val titular: String =  "Ivan - $i"
-        val numConta: Int = 1000 + 1
-        var saldo: Double = i * 0.134 + 13.5
-
-        println("----------------")
-
-        println("titular: $titular")
-        println("conta: $numConta")
-        println("saldo: $saldo")
-
-        println("----------------")
-
-        statusConta(saldo)
-
-        for (i in 3 downTo 1){
-            println(i)
-        }
-        println()
-    }
-
+    val contaFelipe = Conta()
+    contaFelipe.titular = "Felipe"
+    contaFelipe.numero = 258
+    contaFelipe.saldo = 38.89
+    println(contaFelipe.toString())
 }
 
-fun statusConta( saldo: Double) {
-    when {
-        saldo > 0.0 -> println("status: positiva")
-        saldo == 0.0 -> println("status: neutro")
-        else -> println("status: negativa")
+class Conta {
+    var titular = ""
+    var numero = 0
+    var saldo = 0.0
+
+    override fun toString(): String {
+        return "titular: $titular, numero: $numero, saldo: $saldo"
     }
 }
