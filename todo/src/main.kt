@@ -1,14 +1,10 @@
 fun main(){
     println("----------Contas Criadas----------")
-    val contaIvan = Conta()
-    contaIvan.titular = "Ivan"
-    contaIvan.numero = 123
+    val contaIvan = Conta("Ivan", 123)
     println(contaIvan.toString())
     contaIvan.deposita(10.78)
 
-    val contaFelipe = Conta()
-    contaFelipe.titular = "Felipe"
-    contaFelipe.numero = 258
+    val contaFelipe = Conta("Felipe", 258)
     println(contaFelipe.toString())
     contaFelipe.deposita(38.89)
 
@@ -18,12 +14,13 @@ fun main(){
     contaFelipe.saca(348.75)
     contaFelipe.saca(10000.00)
 
-    contaFelipe.transfere(contaIvan, 500.00)
+    contaFelipe.transfere(destino = contaIvan, valor = 500.00)
 }
 
-class Conta {
-    var titular = ""
-    var numero = 0
+class Conta(
+    var titular: String,
+    val numero: Int
+) {
     var saldo = 0.0
         private set
 
